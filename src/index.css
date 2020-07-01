@@ -127,3 +127,7 @@ element.style {
         padding: 1px;
     }
 }
+
+strong {
+    font-weight: 700;
+}
