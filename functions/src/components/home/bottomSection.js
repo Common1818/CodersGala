@@ -73,18 +73,18 @@ var BottomSection = function BottomSection() {
     className: "hero-box__circle hero-box__circle--blue"
   }), /*#__PURE__*/_react.default.createElement("h2", {
     className: "hero-box__title"
-  }, "What is Coders Gala?"), /*#__PURE__*/_react.default.createElement("p", {
+  }, "What is CodersGala?"), /*#__PURE__*/_react.default.createElement("p", {
     className: "hero-box__body"
-  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritat. Veritatis, fugit.is, fugit.")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.NavLink, {
+  }, "CodersGala is a free to use platform for all those people who are unwilling to pay high ransom to these crooked coaching centers for learning web Development. We won't be spoon feeding you but we will guide you. Anyway, if you are eager to learn you will find a way.")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.NavLink, {
     to: "/about/#aboutus",
     className: "hero-box"
   }, /*#__PURE__*/_react.default.createElement("span", {
     className: "hero-box__circle hero-box__circle--green"
   }), /*#__PURE__*/_react.default.createElement("h2", {
     className: "hero-box__title"
-  }, "Who are We ?"), /*#__PURE__*/_react.default.createElement("p", {
+  }, "Who are we?"), /*#__PURE__*/_react.default.createElement("p", {
     className: "hero-box__body"
-  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritat. Veritatis, fugit.is, fugit.")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.NavLink, {
+  }, "We started web development on our own, with no direction and no coaching. All we had was determination and internet. Web development has a very wide community which not only helps you to solve your errors but also teaches you how to level up. We consider ourselves lucky to be able to provide the support that had been provided to us.")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.NavLink, {
     to: "/learn",
     className: "hero-box"
   }, /*#__PURE__*/_react.default.createElement("span", {
@@ -93,7 +93,7 @@ var BottomSection = function BottomSection() {
     className: "hero-box__title"
   }, "Start Learning .."), /*#__PURE__*/_react.default.createElement("p", {
     className: "hero-box__body"
-  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritat. Veritatis, fugit.is, fugit."))));
+  }, "Right now we have the articles on front-end-development. We are working tirelessly to cover backend. We will have the articles aired on backend before september. The course will cover Front-end, API, Nodejs-express, MongoDb, MySQL, Hosting, React, Firebase... and a lot more projects."))));
 };
 
 var _default = BottomSection;
