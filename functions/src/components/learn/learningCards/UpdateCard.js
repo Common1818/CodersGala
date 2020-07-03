@@ -65,6 +65,7 @@ var EditCard = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      var articles = this.props.articles;
       var _this$context = this.context,
           specialities = _this$context.specialities,
           dispatch = _this$context.dispatch;
@@ -74,6 +75,14 @@ var EditCard = /*#__PURE__*/function (_React$Component) {
       var color = specialities && specialities.color;
       var complete = specialities && specialities.loaded;
       var url, name, article;
+      console.log(articles);
+      var lastArticle;
+      articles && articles.map(function (article) {
+        if (article.ArticleName === "WebDevelopmentIntro") {
+          lastArticle = article;
+        }
+      });
+      console.log(lastArticle);
       specialityArray && specialityArray.map(function (item) {
         if (item.id === specailaityId) {
           url = item.imageUrl;
@@ -87,7 +96,8 @@ var EditCard = /*#__PURE__*/function (_React$Component) {
       var handleSubmit = function handleSubmit(e) {
         e.preventDefault();
         (0, _specialityFunctions.UpdateCard)(_objectSpread(_objectSpread({}, _this2.state), {}, {
-          id: specailaityId
+          id: specailaityId,
+          articleId: lastArticle.id
         }), dispatch);
       };
 
@@ -121,11 +131,11 @@ var EditCard = /*#__PURE__*/function (_React$Component) {
         className: "form-control"
       }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("div", {
         className: "ql-snow"
-      }, " ", /*#__PURE__*/_react.default.createElement(_editor.default, (0, _defineProperty2.default)({
-        defaultValue: article && article,
+      }, " ", /*#__PURE__*/_react.default.createElement(_editor.default, {
+        defaultValue: lastArticle.ArticleContent,
         className: "ql-editor",
         handleEditor: handleEditor
-      }, "defaultValue", ""))), /*#__PURE__*/_react.default.createElement("div", {
+      })), /*#__PURE__*/_react.default.createElement("div", {
         className: "add-article-button"
       }, /*#__PURE__*/_react.default.createElement("button", {
         type: "submit",

@@ -72,7 +72,7 @@ const ShareIcon = ({ displayMode, specaility, profile }) => {
                         onCopy={() => setCopied({ copied: true })}
                       >
                         <img
-                          src="https://www.svgrepo.com/show/200099/link.svg"
+                          src="https://www.svgrepo.com/show/41990/clipboard.svg"
                           alt={"copy " + specaility + " url"}
                         />
                       </CopyToClipboard>

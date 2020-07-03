@@ -41,8 +41,7 @@ function insertImage() {
   var value = prompt("What is the image URL");
   var alt = prompt("Enter alt text information");
   var size = prompt("Enter image size : cover/sm/lg/default ").toLowerCase();
-  console.log(size, alt);
-  console.log(length);
+
   this.quill.insertEmbed(length, "image", value, "alt tag");
   $(`.ql-container img[src$="${value}"]`).attr("alt", alt);
   $(`.ql-container img[src$="${value}"]`).addClass(`ql-urlImage-${size}`);
@@ -99,7 +98,7 @@ const CustomToolbar = () => (
     <select className="ql-background">
       <option value="red"></option>
       <option value="green"></option>
-      <option value="blue"></option>
+      <option value="#4F69F8"></option>
       <option value="orange"></option>
       <option value="violet"></option>
       <option value="#d0d1d2"></option>
@@ -107,11 +106,11 @@ const CustomToolbar = () => (
     </select>
 
     <select className="ql-color">
-      <option value="red"></option>
+      <option value="#DA0F47"></option>
       <option value="green"></option>
-      <option value="blue"></option>
+      <option value="#4F69F8"></option>
       <option value="orange"></option>
-      <option value="violet"></option>
+      <option value="#965193"></option>
       <option value="#d0d1d2"></option>
       <option selected></option>
     </select>
@@ -144,22 +143,21 @@ const CustomToolbar = () => (
 class Editor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { editorHtml: "" };
+    this.state = { editorHtml: this.props.defaultValue };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(html) {
     this.setState({ editorHtml: html });
     this.props.handleEditor(html);
-    console.log(this.state);
   }
+
   render() {
     return (
       <div className="text-editor">
         <CustomToolbar />
         <ReactQuill
           onChange={this.handleChange}
-          placeholder={this.props.placeholder}
           modules={Editor.modules}
           value={this.state.editorHtml || ""}
         />

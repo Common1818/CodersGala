@@ -98,8 +98,8 @@ const App = ({ articlesArray }) => {
           <Route exact path="/edit/homepage" component={EditHomepage} />
           <Route
             exact
+            render={(props) => <EditCard {...props} articles={articlesArray} />}
             path="/updatespeciality/:specailaityId"
-            component={EditCard}
           />
           <Route exact path="/addcard" component={AddCard} />
           <Route

@@ -20,8 +20,9 @@ body.dark .points-box {
 
 body.dark nav .logo {
     background: #03001e;
-    background: -webkit-linear-gradient( to right, #fdeff9, #ec38bc, #7303c0, #03001e);
-    background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);
+    background: -webkit-linear-gradient( to right, #f1f1, #ec38bc, #7303c0, #03001e);
+    background: linear-gradient(to right, #f1f1, #ec38bc, #7303c0, #03001e);
     border-radius: 2px;
     padding: 5px !important;
+    color: #f5f2d0 !important;
 }

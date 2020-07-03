@@ -108,6 +108,24 @@
     transition: all 0.3s linear;
 }
 
+.arrow-down svg.topics-overview-toggle.anim,
+body.dark .arrow-down svg.topics-overview-toggle.anim {
+    animation: 1.5s infinite topicsdroparrow;
+}
+
+@keyframes topicsdroparrow {
+    0% {
+        padding-top: 0px
+    }
+    50% {
+        padding-top: 20px;
+        fill: crimson !important;
+    }
+    100% {
+        padding-top: 0px;
+    }
+}
+
 
 /* arrow icon styles */
 
@@ -351,9 +369,9 @@ img {
         background-color: #ffffff !important;
         opacity: 0.8;
         transform: scale(0.7);
-        height: 10vh;
+        height: 50px;
         font-family: "Manrope", sans-serif;
         font-weight: 600;
-        padding-top: 15px;
+        padding-top: 0px;
     }
 }

@@ -19,17 +19,9 @@ var _homeContext = require("../../contexts/homeContext");
 
 var BottomSection = function BottomSection() {
   var _useContext = (0, _react.useContext)(_homeContext.HomeContext),
-      home = _useContext.home; // const homeArray = home && home.home;
-  // const left1 = homeArray && homeArray[0];
-  // const left = left1 && left1.left;
-  // const middle1 = homeArray && homeArray[0];
-  // const middle = middle1 && middle1.middle;
-  // const right1 = homeArray && homeArray[0];
-  // const right = right1 && right1.right;
-
+      home = _useContext.home;
 
   (0, _react.useEffect)(function () {
-    // const navbarOpen = $(".navbar-toggler").attr("aria-expanded");
     if (typeof window !== "undefined") {
       if (window.innerWidth < 600) {
         (0, _jquery.default)(window).scroll(function () {
@@ -61,6 +53,24 @@ var BottomSection = function BottomSection() {
         });
       }
     }
+
+    if (window.innerWidth > 600) {
+      console.log("width is greater than 600");
+      (0, _jquery.default)(document).ready(function () {
+        (0, _jquery.default)(".hero-box__circle--green").addClass("two");
+        (0, _jquery.default)(".hero-box__circle--orange").addClass("three");
+        (0, _jquery.default)(".hero-box__circle--blue").addClass("one");
+        window.setTimeout(function () {
+          (0, _jquery.default)(".hero-box__circle--blue").removeClass("one");
+          window.setTimeout(function () {
+            (0, _jquery.default)(".hero-box__circle--green").removeClass("two");
+            window.setTimeout(function () {
+              (0, _jquery.default)(".hero-box__circle--orange").removeClass("three");
+            }, 850);
+          }, 750);
+        }, 650);
+      });
+    }
   }, []);
   return /*#__PURE__*/_react.default.createElement("section", {
     className: "hero"
@@ -75,7 +85,7 @@ var BottomSection = function BottomSection() {
     className: "hero-box__title"
   }, "What is Coders Gala?"), /*#__PURE__*/_react.default.createElement("p", {
     className: "hero-box__body"
-  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritat. Veritatis, fugit.is, fugit.")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.NavLink, {
+  }, "CodersGala is a free to use platform for all those people who are unwilling to pay high ransom to these crooked coaching centers for learning web Development. We won't be spoon feeding you but we will guide you. Anyway, if you are eager to learn you will find a way.")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.NavLink, {
     to: "/about/#aboutus",
     className: "hero-box"
   }, /*#__PURE__*/_react.default.createElement("span", {
@@ -84,7 +94,7 @@ var BottomSection = function BottomSection() {
     className: "hero-box__title"
   }, "Who are We ?"), /*#__PURE__*/_react.default.createElement("p", {
     className: "hero-box__body"
-  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritat. Veritatis, fugit.is, fugit.")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.NavLink, {
+  }, "We started web development on our own, with no direction and no coaching. All we had was determination and internet. We consider ourselves lucky to be able to provide the support that had been provided to us.")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.NavLink, {
     to: "/learn",
     className: "hero-box"
   }, /*#__PURE__*/_react.default.createElement("span", {
@@ -93,7 +103,7 @@ var BottomSection = function BottomSection() {
     className: "hero-box__title"
   }, "Start Learning .."), /*#__PURE__*/_react.default.createElement("p", {
     className: "hero-box__body"
-  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritat. Veritatis, fugit.is, fugit."))));
+  }, ". We are working tirelessly to cover backend. We will have the articles aired on backend before september. The course will cover Front-end, API, Nodejs-express, MongoDb, MySQL, Hosting, React, Firebase... and a lot more projects."))));
 };
 
 var _default = BottomSection;

@@ -306,8 +306,15 @@ var App = function App(_ref) {
         }),
         /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
           exact: true,
+          render: function render(props) {
+            return /*#__PURE__*/ _react.default.createElement(
+              EditCard,
+              (0, _extends2.default)({}, props, {
+                articles: articlesArray,
+              })
+            );
+          },
           path: "/updatespeciality/:specailaityId",
-          component: EditCard,
         }),
         /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
           exact: true,
