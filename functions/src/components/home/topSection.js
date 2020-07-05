@@ -36,7 +36,7 @@ var TopSection = function TopSection() {
     className: "floatingHero-headline "
   }, "Coders Gala"), /*#__PURE__*/_react.default.createElement("p", {
     className: "floatingHero-description"
-  }, "Coders Gala is a free to use platform, that saves you from the hassle of finding resources to learn from ..."), /*#__PURE__*/_react.default.createElement(_reactRouterDom.NavLink, {
+  }, "Coders Gala is a free to use platform, which will help and guide you, not only to learn web development but become a free-lancer like us. So click on play and embark a new journey with us."), /*#__PURE__*/_react.default.createElement(_reactRouterDom.NavLink, {
     to: "/learn"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "video-play -coral -small -pulse"

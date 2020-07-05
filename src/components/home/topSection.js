@@ -27,8 +27,7 @@ const TopSection = () => {
           <h1 className="floatingHero-headline ">Coders Gala</h1>
 
           <p className="floatingHero-description">
-            Coders Gala is a free to use platform, that saves you from the
-            hassle of finding resources to learn from ...
+            Coders Gala is a free to use platform, which will help and guide you, not only to learn web development but become a free-lancer like us. So click on play and embark a new journey with us. 
           </p>
 
           <NavLink to="/learn">
