@@ -162,12 +162,13 @@ var PreviewPage = function PreviewPage(props) {
     variant: "link",
     onClick: function onClick() {
       (0, _jquery.default)(".arrow-down.overview").toggleClass("down");
+      (0, _jquery.default)(".arrow-down svg.topics-overview-toggle").removeClass("anim");
     },
     className: "float-right speciality-dropdown overview arrow-down",
     eventKey: "0"
   }, /*#__PURE__*/_react.default.createElement("svg", (_React$createElement = {
     viewBox: "0 0 32 32",
-    className: " icon icon-chevron-bottom article-dwn topics-overview-toggle fa-angle-down"
+    className: "anim icon icon-chevron-bottom article-dwn topics-overview-toggle fa-angle-down"
   }, (0, _defineProperty2.default)(_React$createElement, "viewBox", "0 0 32 32"), (0, _defineProperty2.default)(_React$createElement, "aria-hidden", "true"), _React$createElement), /*#__PURE__*/_react.default.createElement("path", {
     d: "M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z"
   })))), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Accordion.Collapse, {

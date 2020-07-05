@@ -13,6 +13,7 @@ class EditCard extends React.Component {
   static contextType = SpecialityContext;
 
   render() {
+    const { articles } = this.props;
     const { specialities, dispatch } = this.context;
     const specialityArray = specialities && specialities.specialities;
     const { specailaityId } = this.props.match.params;
@@ -22,6 +23,15 @@ class EditCard extends React.Component {
     const complete = specialities && specialities.loaded;
 
     var url, name, article;
+    console.log(articles);
+    var lastArticle;
+    articles &&
+      articles.map((article) => {
+        if (article.ArticleName === "WebDevelopmentIntro") {
+          lastArticle = article;
+        }
+      });
+    console.log(lastArticle.ArticleContent);
 
     specialityArray &&
       specialityArray.map((item) => {
@@ -35,7 +45,10 @@ class EditCard extends React.Component {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      UpdateCard({ ...this.state, id: specailaityId }, dispatch);
+      UpdateCard(
+        { ...this.state, id: specailaityId, articleId: lastArticle.id },
+        dispatch
+      );
     };
 
     const handleEditor = (html) => {
@@ -77,10 +90,9 @@ class EditCard extends React.Component {
               <div className="ql-snow">
                 {" "}
                 <Editor
-                  defaultValue={article && article}
+                  defaultValue={lastArticle.ArticleContent}
                   className="ql-editor"
                   handleEditor={handleEditor}
-                  defaultValue=""
                 />
               </div>
 

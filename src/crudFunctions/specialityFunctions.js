@@ -20,6 +20,7 @@ export const getSpecialities = async (dispatch) => {
 };
 
 export const UpdateCard = (state, dispatch) => {
+  console.log(state);
   firebase
     .firestore()
     .collection("Specialities")
@@ -28,12 +29,21 @@ export const UpdateCard = (state, dispatch) => {
       ...state,
     })
     .then(() => {
-      dispatch({
-        type: "UPDATE_CARD",
-        message: "Article updated successfully",
-        color: "success",
-        complete: true,
-      });
+      firebase
+        .firestore()
+        .collection("Articles")
+        .doc(state.articleId)
+        .update({
+          ArticleContent: state.ArticleContent,
+        })
+        .then(() => {
+          dispatch({
+            type: "UPDATE_CARD",
+            message: "Article updated successfully",
+            color: "success",
+            complete: true,
+          });
+        });
     })
     .catch(() => {
       dispatch({

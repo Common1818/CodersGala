@@ -122,13 +122,16 @@ const PreviewPage = (props) => {
                     variant="link"
                     onClick={() => {
                       $(".arrow-down.overview").toggleClass("down");
+                      $(".arrow-down svg.topics-overview-toggle").removeClass(
+                        "anim"
+                      );
                     }}
                     className="float-right speciality-dropdown overview arrow-down"
                     eventKey="0"
                   >
                     <svg
                       viewBox="0 0 32 32"
-                      className=" icon icon-chevron-bottom article-dwn topics-overview-toggle fa-angle-down"
+                      className="anim icon icon-chevron-bottom article-dwn topics-overview-toggle fa-angle-down"
                       viewBox="0 0 32 32"
                       aria-hidden="true"
                     >

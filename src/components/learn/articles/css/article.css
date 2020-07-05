@@ -60,19 +60,21 @@ body.dark .ql-snow .ql-editor pre.ql-syntax {
 .back-btn {
     opacity: 0.8;
     position: fixed;
-    width: 70px;
+    width: 45px;
     top: 100px;
-    left: 20px;
+    left: auto !important;
+    right: 20px;
     z-index: 1000;
 }
 
 @media (max-width: 500px) {
     .back-btn {
         opacity: 0.8;
-        position: absolute;
+        position: fixed;
         width: 50px;
         top: 100px;
-        left: 20px;
+        left: auto !important;
+        right: 20px;
         z-index: 1000;
     }
 }

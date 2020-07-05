@@ -244,37 +244,118 @@ var App = function App(_ref) {
         articles: articlesArray
       }));
     },
-    exact: true,
-    path: "/learn/:specialityName"
-  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    exact: true,
-    path: "/adminpanel",
-    component: AdminPanel
-  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    exact: true,
-    path: "/edit/homepage",
-    component: EditHomepage
-  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    exact: true,
-    path: "/updatespeciality/:specailaityId",
-    component: EditCard
-  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    exact: true,
-    path: "/addcard",
-    component: AddCard
-  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    exact: true,
-    path: "/article/add/:SpecialityId/:id",
-    component: AddArticle
-  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    exact: true,
-    path: "/article/update/:SpecialityId/:TopicId/:ArticleId",
-    component: UpdateArticle
-  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    exact: true,
-    path: "/completeProfile",
-    component: _completeProfile.default
-  }))));
+
+    /*#__PURE__*/ _react.default.createElement(_Navbar.default, null),
+    /*#__PURE__*/ _react.default.createElement(
+      _framerMotion.AnimatePresence,
+      null,
+      /*#__PURE__*/ _react.default.createElement(
+        _reactRouterDom.Switch,
+        null,
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Redirect, {
+          exact: true,
+          from: "/",
+          to: "home",
+        }),
+        ";",
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          path: "/home",
+          component: Home,
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          path: "/about",
+          component: About,
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          path: "/learn",
+          component: Learn,
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          path: "/signup",
+          component: SignUp,
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          path: "/signup/:referCode",
+          component: SignUp,
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          path: "/login",
+          component: SignIn,
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          render: function render(props) {
+            return /*#__PURE__*/ _react.default.createElement(
+              _SelectedArticle.default,
+              (0, _extends2.default)({}, props, {
+                articles: articlesArray,
+              })
+            );
+          },
+          exact: true,
+          path: "/:specialityId/:topicId/:Id",
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          render: function render(props) {
+            return /*#__PURE__*/ _react.default.createElement(
+              PreviewPage,
+              (0, _extends2.default)({}, props, {
+                articles: articlesArray,
+              })
+            );
+          },
+          exact: true,
+          path: "/learn/:specialityName",
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          path: "/adminpanel",
+          component: AdminPanel,
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          path: "/edit/homepage",
+          component: EditHomepage,
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          render: function render(props) {
+            return /*#__PURE__*/ _react.default.createElement(
+              EditCard,
+              (0, _extends2.default)({}, props, {
+                articles: articlesArray,
+              })
+            );
+          },
+          path: "/updatespeciality/:specailaityId",
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          path: "/addcard",
+          component: AddCard,
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          path: "/article/add/:SpecialityId/:id",
+          component: AddArticle,
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          path: "/article/update/:SpecialityId/:TopicId/:ArticleId",
+          component: UpdateArticle,
+        }),
+        /*#__PURE__*/ _react.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          path: "/completeProfile",
+          component: _completeProfile.default,
+        })
+      )
+    )
+  );
+
 };
 
 var _default = App;

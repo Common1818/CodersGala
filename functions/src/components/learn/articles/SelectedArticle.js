@@ -1,8 +1,8 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -31,8 +31,9 @@ var _jquery = _interopRequireDefault(require("jquery"));
 
 var _Footer = _interopRequireDefault(require("../../layout/Footer/Footer"));
 
-var _this = void 0;
+var _shareArticle = _interopRequireDefault(require("./shareArticle"));
 
+/* eslint-disable */
 var SelectedArticle = function SelectedArticle(props) {
   var articles = props.articles;
   var value;
@@ -96,7 +97,14 @@ var SelectedArticle = function SelectedArticle(props) {
         if (idItem == topicId) setShow(true);
       });
     }
-  }); // Add React Helmet Regardless of locked since its already taken care of
+  }); // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     $(window).scroll(() => {
+  //       console.log("scroll");
+  //     });
+  //   }
+  // });
+  // Add React Helmet Regardless of locked since its already taken care of
 
   return !locked || locked && show ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
     className: "selected-article"
@@ -111,76 +119,8 @@ var SelectedArticle = function SelectedArticle(props) {
       })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
         key: article.id,
         className: "full-view-article p-2"
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "share-icons"
-      }, /*#__PURE__*/_react.default.createElement("a", {
-        className: "share-toggle",
-        onClick: function onClick() {
-          (0, _jquery.default)(_this).css({
-            transform: "rotate(" + "180" + "deg)"
-          });
-          (0, _jquery.default)(".share-image").toggleClass("show");
-        }
-      }, /*#__PURE__*/_react.default.createElement("svg", {
-        style: {
-          width: "25px"
-        },
-        class: "svg-icon",
-        viewBox: "0 0 20 20"
-      }, /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("path", {
-        fill: "none",
-        d: "M19.175,4.856L15.138,0.82c-0.295-0.295-0.817-0.295-1.112,0L8.748,6.098c-0.307,0.307-0.307,0.805,0,1.112l1.462,1.462l-1.533,1.535L7.215,8.746c-0.307-0.307-0.805-0.307-1.112,0l-5.278,5.276c-0.307,0.307-0.307,0.805,0,1.112l4.037,4.037c0.154,0.153,0.355,0.23,0.556,0.23c0.201,0,0.403-0.077,0.556-0.23l5.28-5.276c0.148-0.148,0.23-0.347,0.23-0.556c0-0.209-0.083-0.409-0.23-0.556l-1.464-1.464l1.533-1.535l1.462,1.462c0.153,0.153,0.355,0.23,0.556,0.23c0.201,0,0.402-0.077,0.556-0.23l5.278-5.278c0.147-0.147,0.23-0.347,0.23-0.556C19.406,5.203,19.322,5.004,19.175,4.856zM9.585,13.339l-4.167,4.164l-2.925-2.925l4.166-4.164l0.906,0.905l-0.67,0.668c-0.307,0.307-0.307,0.805,0,1.112c0.154,0.153,0.356,0.23,0.556,0.23c0.203,0,0.403-0.077,0.556-0.23l0.67-0.668L9.585,13.339z M13.341,9.578l-0.906-0.906l0.663-0.662c0.307-0.307,0.307-0.805,0-1.112c-0.307-0.307-0.805-0.307-1.112,0L11.322,7.56l-0.906-0.906l4.166-4.166l2.925,2.925L13.341,9.578z"
-      }))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.OverlayTrigger, {
-        placement: "right",
-        overlay: copied ? /*#__PURE__*/_react.default.createElement(_reactBootstrap.Tooltip, {
-          id: "tooltip-right"
-        }, "Link Copied to ClipBoard") : /*#__PURE__*/_react.default.createElement(_reactBootstrap.Tooltip, {
-          id: "tooltip-right"
-        }, "Copy link to clipboard")
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        id: "link",
-        className: "link-icon"
-      }, /*#__PURE__*/_react.default.createElement(_reactCopyToClipboard.CopyToClipboard, {
-        text: value,
-        onCopy: function onCopy() {
-          return setCopied(true);
-        }
-      }, /*#__PURE__*/_react.default.createElement("img", {
-        className: "share-image",
-        src: "https://www.svgrepo.com/show/47491/link.svg",
-        alt: "copy link of " + article.ArticleName
-      })))), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_reactBootstrap.OverlayTrigger, {
-        placement: "right",
-        overlay: /*#__PURE__*/_react.default.createElement(_reactBootstrap.Tooltip, {
-          id: "tooltip-right"
-        }, "Share via mail")
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "mail-icon"
-      }, /*#__PURE__*/_react.default.createElement("a", {
-        className: "mail-icon",
-        href: "mailto:?Subject=".concat("Article on " + article.ArticleName, "&Body=Hey look i just found out this Amazing article on \"").concat(article.ArticleName, "\",Check it out : ").concat(url),
-        target: "_top",
-        rel: "nofollow"
-      }, /*#__PURE__*/_react.default.createElement("img", {
-        className: "share-image",
-        src: "https://www.svgrepo.com/show/303161/gmail-icon-logo.svg",
-        alt: "share " + article.ArticleName + " on Gmail"
-      })))), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_reactBootstrap.OverlayTrigger, {
-        placement: "right",
-        overlay: /*#__PURE__*/_react.default.createElement(_reactBootstrap.Tooltip, {
-          id: "tooltip-right"
-        }, "Share on WhatsApp")
-      }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("a", {
-        className: "whatsapp-icon",
-        rel: "noopener noreferrer",
-        href: "https://api.whatsapp.com/send?text=Hey look i just found out this Amazing article on \"".concat(article.ArticleName, "\",Check it out : ").concat(url),
-        target: "_blank"
-      }, /*#__PURE__*/_react.default.createElement("img", {
-        className: "share-image",
-        src: "https://www.svgrepo.com/show/303150/whatsapp-symbol-logo.svg",
-        alt: "share " + article.ArticleName + " on Whatsapp"
-      }))))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
-        sm: 1
+      }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+        sm: 2
       }), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
         id: "top",
         style: {
@@ -208,7 +148,7 @@ var SelectedArticle = function SelectedArticle(props) {
         alt: "Go on Top of " + article.ArticleName
       }))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
         className: "full-page ad",
-        sm: 3
+        sm: 2
       }, /*#__PURE__*/_react.default.createElement("img", {
         src: "https://res.cloudinary.com/css-tricks/image/fetch/w_600,q_auto,f_auto/https://cdn4.buysellads.net/uu/7/66572/1590680720-CSS_arcade_600x600.jpg",
         alt: ""
@@ -222,7 +162,10 @@ var SelectedArticle = function SelectedArticle(props) {
     className: "back-btn",
     src: "https://www.svgrepo.com/show/50213/back.svg",
     alt: "back button"
-  })), /*#__PURE__*/_react.default.createElement(_Footer.default, null)) : /*#__PURE__*/_react.default.createElement(_reactRouterDom.Redirect, {
+  })), /*#__PURE__*/_react.default.createElement(_shareArticle.default, {
+    NId: NId,
+    url: url
+  }), /*#__PURE__*/_react.default.createElement(_Footer.default, null)) : /*#__PURE__*/_react.default.createElement(_reactRouterDom.Redirect, {
     to: "/signup"
   });
 };

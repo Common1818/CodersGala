@@ -89,7 +89,7 @@ var ShareIcon = function ShareIcon(_ref) {
         });
       }
     }, /*#__PURE__*/_react.default.createElement("img", {
-      src: "https://www.svgrepo.com/show/200099/link.svg",
+      src: "https://www.svgrepo.com/show/41990/clipboard.svg",
       alt: "copy " + specaility + " url"
     }))))), /*#__PURE__*/_react.default.createElement("div", {
       className: "icon"

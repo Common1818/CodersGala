@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import $ from "jquery";
 
 const SignedOutLinks = () => {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 500) {
+        $(".nav-item a").click(() => {
+          $("html, body").animate({ scrollTop: 250 }, 100);
+        });
+      }
+    }
+  }, []);
   return (
     <div>
       <ul className="navbar-nav ml-auto py-4 py-md-0">

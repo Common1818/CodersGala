@@ -59,12 +59,18 @@ var getSpecialities = /*#__PURE__*/function () {
 exports.getSpecialities = getSpecialities;
 
 var UpdateCard = function UpdateCard(state, dispatch) {
+  console.log(state);
+
   _fbConfig.default.firestore().collection("Specialities").doc(state.id).update(_objectSpread({}, state)).then(function () {
-    dispatch({
-      type: "UPDATE_CARD",
-      message: "Article updated successfully",
-      color: "success",
-      complete: true
+    _fbConfig.default.firestore().collection("Articles").doc(state.articleId).update({
+      ArticleContent: state.ArticleContent
+    }).then(function () {
+      dispatch({
+        type: "UPDATE_CARD",
+        message: "Article updated successfully",
+        color: "success",
+        complete: true
+      });
     });
   }).catch(function () {
     dispatch({

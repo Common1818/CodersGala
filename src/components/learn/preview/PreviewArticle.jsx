@@ -1,4 +1,5 @@
 import React from "react";
+import $ from "jquery";
 import { Link } from "react-router-dom";
 
 const PreviewArticle = ({ TopicNames, SelectedArticle, specialityName }) => {
@@ -37,6 +38,9 @@ const PreviewArticle = ({ TopicNames, SelectedArticle, specialityName }) => {
       </div>
       <div>
         <Link
+          onClick={() => {
+            $("html, body").animate({ scrollTop: 10 }, 200);
+          }}
           to={
             "/" +
             specialityName +

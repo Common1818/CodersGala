@@ -45,6 +45,14 @@ a:hover {
         padding-top: 160px;
         width: 100%;
     }
+    .floatingHero {
+        background: url("https://luna1.co/5872dc.png") repeat-x bottom;
+        background-size: cover;
+        height: 55vh;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
 }
 
 @media (min-width: 80em) {
@@ -149,9 +157,9 @@ a:hover {
 
 @media (min-width: 60em) {
     .video-play {
-        margin-top: 30px;
-        height: 75px;
-        width: 75px;
+        margin-top: -16px;
+        height: 55px;
+        width: 55px;
     }
     .video-play:before {
         border-top-width: 10px;
