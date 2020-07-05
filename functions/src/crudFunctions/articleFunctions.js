@@ -28,7 +28,7 @@ var getArticles = /*#__PURE__*/function () {
           case 0:
             articlesArray = [];
             _context.next = 3;
-            return _fbConfig.default.firestore().collection("Articles").orderBy("timestamp", "desc").get();
+            return _fbConfig.default.firestore().collection("Articles").orderBy("timestamp").get();
 
           case 3:
             articlesArraySnapshot = _context.sent;

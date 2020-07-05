@@ -9,6 +9,8 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _jquery = _interopRequireDefault(require("jquery"));
+
 var _reactRouterDom = require("react-router-dom");
 
 var PreviewArticle = function PreviewArticle(_ref) {
@@ -39,6 +41,11 @@ var PreviewArticle = function PreviewArticle(_ref) {
 
     return null;
   })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    onClick: function onClick() {
+      (0, _jquery.default)("html, body").animate({
+        scrollTop: 10
+      }, 200);
+    },
     to: "/" + specialityName + "/" + "read" + "/" + slicedArticle.replace(/\s/g, "-")
   }, /*#__PURE__*/_react.default.createElement("h2", {
     className: "link"

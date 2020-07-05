@@ -5,7 +5,7 @@ export const getArticles = async (dispatch) => {
   const articlesArraySnapshot = await firebase
     .firestore()
     .collection("Articles")
-    .orderBy("timestamp", "desc")
+    .orderBy("timestamp")
     .get();
 
   articlesArraySnapshot.docs.map((doc) => {

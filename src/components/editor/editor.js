@@ -5,7 +5,8 @@ import ReactQuill, { Quill } from "react-quill";
 import $ from "jquery";
 import "react-quill/dist/quill.snow.css";
 import "./editor.css";
-
+let BlockEmbed = Quill.import("blots/block/embed");
+let Inline = Quill.import("blots/inline");
 hljs.configure({
   languages: ["javascript", "python", "html", "css"],
 });
@@ -14,6 +15,14 @@ const CustomButton = () => (
   <img
     style={{ width: "20px" }}
     src="https://www.svgrepo.com/show/77584/image.svg"
+    alt=""
+  />
+);
+
+const CodeLine = () => (
+  <img
+    style={{ width: "20px" }}
+    src="https://www.svgrepo.com/show/294145/code.svg"
     alt=""
   />
 );
@@ -36,16 +45,58 @@ Size.whitelist = [
 ];
 Quill.register(Size, true);
 
-function insertImage() {
-  var length = this.quill.getLength();
-  var value = prompt("What is the image URL");
-  var alt = prompt("Enter alt text information");
-  var size = prompt("Enter image size : cover/sm/lg/default ").toLowerCase();
+class inlineCodeBlot extends Inline {}
+inlineCodeBlot.blotName = "inlineCode";
+inlineCodeBlot.tagName = "code";
 
-  this.quill.insertEmbed(length, "image", value, "alt tag");
-  $(`.ql-container img[src$="${value}"]`).attr("alt", alt);
-  $(`.ql-container img[src$="${value}"]`).addClass(`ql-urlImage-${size}`);
-  console.log($(`.ql-container img[src$="${value}"]`));
+class ImageBlot extends BlockEmbed {
+  static create(value) {
+    let node = super.create();
+    node.setAttribute("alt", value.alt);
+    node.setAttribute("src", value.url);
+    node.setAttribute("class", value.class);
+    console.log(node);
+    return node;
+  }
+
+  static value(node) {
+    return {
+      alt: node.getAttribute("alt"),
+      url: node.getAttribute("src"),
+      class: node.getAttribute("class"),
+    };
+  }
+}
+ImageBlot.blotName = "image";
+ImageBlot.tagName = "img";
+Quill.register(ImageBlot);
+Quill.register(inlineCodeBlot);
+
+function insertImage() {
+  let url = prompt("Enter link URL");
+  let alt = prompt("Enter link alt");
+  let clas = prompt("Enter class Name");
+  let range = this.quill.getSelection(true);
+  console.log(Quill.sources);
+  this.quill.insertText(range.index, "\n", Quill.sources.USER);
+  this.quill.insertEmbed(
+    range.index + 1,
+    "image",
+    {
+      alt: alt,
+      url: url,
+      class: clas,
+    },
+    Quill.sources.USER
+  );
+  this.quill.setSelection(range.index + 2, Quill.sources.SILENT);
+}
+
+function insertInlineCode(e) {
+  e.preventDefault();
+  // console.log(this.quill);
+  // this.quill.format("inlineCode", true);
+  console.log("inline code ins");
 }
 
 const CustomToolbar = () => (
@@ -107,10 +158,10 @@ const CustomToolbar = () => (
 
     <select className="ql-color">
       <option value="#DA0F47"></option>
-      <option value="green"></option>
+      <option value="#4DCE1D"></option>
       <option value="#4F69F8"></option>
       <option value="orange"></option>
-      <option value="#965193"></option>
+      <option value="#9933ff"></option>
       <option value="#d0d1d2"></option>
       <option selected></option>
     </select>
@@ -153,6 +204,9 @@ class Editor extends React.Component {
   }
 
   render() {
+    // console.log(this.state.editorHtml);
+
+    console.log(this.props.defaultValue);
     return (
       <div className="text-editor">
         <CustomToolbar />
@@ -175,6 +229,7 @@ Editor.modules = {
 
     handlers: {
       insertImage: insertImage,
+      insertInlineCode: insertInlineCode,
     },
   },
 };

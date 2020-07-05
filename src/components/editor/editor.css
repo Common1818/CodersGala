@@ -133,12 +133,16 @@ img.ql-urlImage-cover {
         padding: 0px;
     }
     img.ql-urlImage-lg {
-        width: 85% !important;
-        height: 25vh !important;
+        width: 100% !important;
+        height: 30vh !important;
+        margin: 10px auto;
+        padding: 0px;
     }
     img.ql-urlImage-sm {
-        width: 85% !important;
-        height: 25vh !important;
+        width: 100% !important;
+        height: 30vh !important;
+        margin: 10px auto;
+        padding: 0px;
     }
     .ql-snow .ql-editor img.ql-urlImage-default {
         min-width: 100%;
@@ -195,4 +199,26 @@ body.dark .hljs-number {
 
 .ql-snow .ql-editor blockquote {
     border-left: 4px solid #ffc107;
+}
+
+.ql-toolbar.ql-snow {
+    background-color: #fff;
+    position: fixed !important;
+    z-index: 1000 !important;
+}
+
+.hljs-tag {
+    color: purple !important;
+}
+
+.hljs-name {
+    color: coral !important;
+}
+
+body.dark .hljs-name {
+    color: #ffc800 !important;
+}
+
+body.dark .hljs-tag {
+    color: cyan !important;
 }

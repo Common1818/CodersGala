@@ -131,3 +131,8 @@ element.style {
 .ql-editor strong {
     font-weight: 800;
 }
+
+.ql-editor img.ql-align-center {
+    display: block;
+    margin: 0px auto;
+}

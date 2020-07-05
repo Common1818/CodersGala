@@ -82,7 +82,7 @@ var EditCard = /*#__PURE__*/function (_React$Component) {
           lastArticle = article;
         }
       });
-      console.log(lastArticle);
+      console.log(lastArticle.ArticleContent);
       specialityArray && specialityArray.map(function (item) {
         if (item.id === specailaityId) {
           url = item.imageUrl;
